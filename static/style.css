@@ -191,3 +191,9 @@ input[type="number"] {
 .margin-left {
   margin-left:25px
 }
+.margin-right {
+  margin-right:250px
+}
+.success-toast-margin-right {
+  margin-right:330px
+}
