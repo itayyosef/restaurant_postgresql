@@ -4,7 +4,9 @@
 {% with error = get_flashed_messages(category_filter=['error']) %}
 {% if error %}
 {% for message in error %}
-<div class="alert alert-danger centerize red-text text-darken-1 bigger-text" role="alert">{{message}}</div>
+<script>
+    M.toast({ html: '{{message}}', displayLength: 3000, classes: 'rounded red margin-right' })
+</script>
 {% endfor %}
 {% endif %}
 {% endwith %}

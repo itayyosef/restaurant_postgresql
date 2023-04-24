@@ -8,7 +8,9 @@
 {% with success = get_flashed_messages(category_filter=['success']) %}
 {% if success %}
 {% for message in success%}
-<div class="alert alert-success centerize green-text text-darken-1 bigger-text" role="alert">{{message}}</div>
+<script classes="toast-container">
+    M.toast({ html: '{{message}}', displayLength: 3000, classes: 'rounded green success-toast-margin-right' })
+</script>
 {% endfor %}
 {% endif %}
 {% endwith %}

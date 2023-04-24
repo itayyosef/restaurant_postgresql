@@ -4,7 +4,9 @@
 {% with error = get_flashed_messages(category_filter=['error']) %}
 {% if error %}
 {% for message in error %}
-<div class="alert alert-danger centerize red-text text-darken-1 bigger-text" role="alert">{{message}}</div>
+<script>
+    M.toast({ html: '{{message}}', displayLength: 3000, classes: 'rounded red margin-right' })
+</script>
 {% endfor %}
 {% endif %}
 {% endwith %}
@@ -17,6 +19,7 @@
     <form class="col s12" action="{{url_for ('create_dish')}}" method="POST">
         <div class="row">
             <div class="input-field col s12">
+                <div class="bold small-margin">The current category :</div>
                 <select class="browser-default" name="category_dish">
                     <option value="" disabled selected>Category name</option>
                     {% for category in categories %}
@@ -28,40 +31,40 @@
                 <div class="input-field col s12">
                     <input placeholder="Dish name" id="dish_name" type="text" class="validate" name="dish_name"
                         required>
-                    <label for="dish_name">Dish name :</label>
+                    <label for="dish_name" class="bigger-text">Dish name :</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
                     <input placeholder="Price" id="price" type="number" step="0.5" class="validate" name="price"
                         required>
-                    <label for="price">Price :</label>
+                    <label for="price" class="bigger-text">Price :</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
                     <input placeholder="Description" id="description" type="text" class="validate" name="description"
                         required>
-                    <label for="description">Description :</label>
+                    <label for="description" class="bigger-text">Description :</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
                     <input placeholder="image URL" id="image_url" type="text" class="validate" name="image_url"
                         required>
-                    <label for="image_url">Image URL :</label>
+                    <label for="image_url" class="bigger-text">Image URL :</label>
                 </div>
             </div>
             <p>
                 <label>
                     <input type="checkbox" name="is_gluten_free" />
-                    <span>Is it gluten free?</span>
+                    <span class="bigger-text">Is it gluten free?</span>
                 </label>
             </p>
             <p>
                 <label>
                     <input type="checkbox" name="is_vegetarian" />
-                    <span>Is it vegetarian?</span>
+                    <span class="bigger-text">Is it vegetarian?</span>
                 </label>
             </p>
             <button type="submit" class="waves-effect waves-light btn-small">Accept</button>

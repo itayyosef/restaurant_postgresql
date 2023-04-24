@@ -4,7 +4,9 @@
 {% with error = get_flashed_messages(category_filter=['error']) %}
 {% if error %}
 {% for message in error %}
-<div class="alert alert-danger centerize red-text text-darken-1 bigger-text" role="alert">{{message}}</div>
+<script>
+    M.toast({ html: '{{message}}', displayLength: 3000, classes: 'rounded red margin-right' })
+</script>
 {% endfor %}
 {% endif %}
 {% endwith %}
@@ -17,9 +19,14 @@
     <form class="col s12" action="{{url_for ('edit_dish',id=dish.id)}}" method="POST">
         <div class="row">
             <div class="input-field col s12">
+                <div class="bold small-margin">The current category :</div>
                 <select class="browser-default" name="category_dish">
                     {% for category in categories %}
+                    {% if category == dish.category %}
+                    <option value="{{category.id}}" selected>{{category.category_name|title}}</option>
+                    {% else %}
                     <option value="{{category.id}}">{{category.category_name|title}}</option>
+                    {% endif %}
                     {% endfor %}
                 </select>
             </div>

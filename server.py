@@ -256,19 +256,22 @@ def confirm_delivery():
             db.session.add(delivery)
             db.session.commit()
             if cart:
-                cart.delivery_id = delivery.id
-                cart.finished_order = True # make sure the user cant change the order after placing it
-                db.session.commit() # adding the delivery_id to the already existing cart object
-                flash("Your order was created successfully , for changes please call the business.","success")
-                return render_template('one_delivery.html',delivery=delivery,calculate_order=calculate_order(cart))
+                if cart.items:
+                    cart.delivery_id = delivery.id
+                    cart.finished_order = True # make sure the user cant change the order after placing it
+                    db.session.commit() # adding the delivery_id to the already existing cart object
+                    flash("Your order was created successfully , for changes please call the business.","success")
+                    return render_template('one_delivery.html',delivery=delivery,calculate_order=calculate_order(cart))
+                else:
+                    flash("There are no items in your cart to make a delivery , please add items","error")
+                    return(render_template("one_cart.html",delivery=delivery,cart=cart))
             else:
-                flash("There is no current active cart","error")
+                flash("There is no current active cart","error") # prevents adding items to a non-existent cart
                 return render_template("one_cart.html",delivery=delivery,cart=cart)
         except Exception as e:
-            flash(f"Error {e}","error")
+            flash(f"Error {e}","error") # problem with the add or commit
             return render_template("one_cart.html",delivery=delivery,cart=cart) 
         
-    flash("There was a problem with creating your order.","error")
     return redirect(url_for('show-cart'))
 
 @app.route('/delete-item/<int:id>')
