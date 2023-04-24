@@ -1,0 +1,127 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+<br>
+<div dir="rtl">
+    <div class="center">
+        <a href="{{url_for ('main_page') }}" class="waves-effect waves-light grey darken-1 btn-small right">Back to main
+            page</a>
+        <a href="{{url_for ('manage_categories') }}" class="waves-effect waves-light grey darken-1 btn-small left">All
+            Categories</a>
+        <a href="{{url_for ('manage_dishes')}}" class="waves-effect waves-light grey darken-1 btn-small">All
+            Dishes</a>
+    </div>
+</div>
+
+{% with success = get_flashed_messages(category_filter=['success']) %}
+{% if success %}
+{% for message in success%}
+<div class="alert alert-success centerize green-text text-darken-1 bigger-text" role="alert">{{message}}</div>
+{% endfor %}
+{% endif %}
+{% endwith %}
+
+{% with error = get_flashed_messages(category_filter=['error']) %}
+{% if error %}
+{% for message in error %}
+<div class="alert alert-danger centerize red-text text-darken-1 bigger-text" role="alert">{{message}}</div>
+{% endfor %}
+{% endif %}
+{% endwith %}
+
+<div class="center">
+    <h5 class="bold">This is the delivery control page</h5>
+    <h6>Here you can watch all the deliveries in the restaurant and change their status</h6>
+</div>
+<table class="centered">
+    <thead class="delivery-border-title">
+        <tr>
+            <th>User details</th>
+            <th>Order details</th>
+            <th>Delivery details</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for cart in carts[::-1] %}
+        <tr>
+            <td class="delivery-border-left">
+                <div>
+                    <span class="bold">User ID </span>: {{cart.user.id}}
+                </div>
+                <div>
+                    <span class="bold">Username </span>: {{cart.user.username}}
+                </div>
+                <div>
+                    <span class="bold">First name </span>: {{cart.user.first_name}}
+                </div>
+                <div>
+                    <span class="bold">Last name </span>: {{cart.user.last_name}}
+                </div>
+                <div>
+                    <span class="bold">Email </span>: {{cart.user.email}}
+                </div>
+            </td>
+            <td class="delivery-border-center">
+                <div>
+                    <span class="bold">Order ID : </span>{{cart.id}}
+                </div>
+                <div>
+                    <span class="bold">Order completed : </span>{{cart.finished_order}}
+                </div>
+                <div>
+                    <span class="bold">Items : </span>
+                </div>
+                {% for item in cart.items %}
+                {% if item.amount > 1 %}
+                <div>{{item.amount}} {{item.dish.dish_name}}s </div>
+                {% else %}
+                <div>{{item.amount}} {{item.dish.dish_name}} </div>
+                {% endif %}
+                {% endfor %}
+                <div>
+                    <span class="bold">Total price :</span> {{calculate_order(cart)}}₪
+                </div>
+                <div>
+                    <span class="bold blue-text text-darken-2">Status :</span>
+                </div>
+                {% if cart.delivery.is_delivered %}
+                <div class="bold" style="color:lightgreen">Delivered</div>
+                {% elif cart.delivery %}
+                <div class="bold" style="color:orange">In preparation</div>
+                <form action="{{url_for ('change_delivery_status',id=cart.id)}}" method="POST">
+                    <button type="submit" class="waves-effect waves-light btn-small">Confirm delivery
+                    </button>
+                </form>
+                {% else %}
+                <div class="red-text">Not ordered yet</div>
+                {% endif %}
+            </td>
+            <td class="delivery-border-right">
+                <div>
+                    <span class="bold">Delivery ID </span>: {{cart.delivery.id}}
+                </div>
+                <div>
+                    <span class="bold">Delivery Address </span>: {{cart.delivery.address}}
+                </div>
+                <div>
+                    <span class="bold">Delivery Comments </span>: {{cart.delivery.comments}}
+                </div>
+                <div>
+                    <span class="bold">Phone for delivery </span>: {{cart.delivery.phone_for_delivery}}
+                </div>
+                {% if cart.delivery %}
+                <div>
+                    <span class="bold">Time created</span>: {{cart.delivery.created.strftime("%d/%m/%Y %H:%M")}}
+                </div>
+                {% else %}
+                <div>
+                    <span class="bold">Time created</span>:
+                    <div class="red-text"> Delivery wasn't created yet</div>
+                </div>
+                {% endif %}
+                {% endfor %}
+            </td>
+        </tr>
+    </tbody>
+</table>
+{% endblock %}

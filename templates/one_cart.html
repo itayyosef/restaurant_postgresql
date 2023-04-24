@@ -1,0 +1,113 @@
+{% extends 'layout.html' %}
+{% block content %}
+<br>
+<div dir="rtl">
+    <a class="waves-effect waves-light btn-small" href="{{url_for('show_user')}}">Go to user overview</a>
+</div>
+
+{% with success = get_flashed_messages(category_filter=['success']) %}
+{% if success %}
+{% for message in success%}
+<div class="alert alert-success centerize green-text text-darken-1 bigger-text" role="alert">{{message}}</div>
+{% endfor %}
+{% endif %}
+{% endwith %}
+
+{% with error = get_flashed_messages(category_filter=['error']) %}
+{% if error %}
+{% for message in error %}
+<div class="alert alert-danger centerize red-text text-darken-1 bigger-text" role="alert">{{message}}</div>
+{% endfor %}
+{% endif %}
+{% endwith %}
+
+<div class="centerize">
+    <h5>Hello {{current_user.username}} , You're one step before finishing your order!</h5>
+    <p class="bigger-text">Your order details are as presented below :</p>
+</div>
+<ul class="collection with-header">
+    <li class="collection-header">
+        <div class="centerize">
+            <h4>Check current cart before delivery</h4>
+        </div>
+    </li>
+    {% for item in cart.items %}
+    <li class="collection-item list_max_height">
+        <form action="{{ url_for('update_item', id=item.id) }}" method="post">
+            <div class="row">
+                <div class="col s2 left">
+                    <br>
+                    {% if item.amount > 1 %}
+                    <span>{{item.amount}} {{item.dish.dish_name}}s</span>
+                    {% else %}
+                    <span>{{item.amount}} {{item.dish.dish_name}}</span>
+                    {% endif %}
+                </div>
+                {% if item.amount == 1 %}
+                <div class="col s6">
+                    <div class="input-field inline right ">
+                        <input type="number" name="amount" min="1" max="10" value="{{ item.amount }}"
+                            class="amount_width">
+                        <label for="amount" class="active">Amount</label>
+                    </div>
+                    <span class="right price_per_item">{{item.dish.price}}₪</span>
+                </div>
+                <br>
+                <div class="col s4">
+                    <a href="{{ url_for('delete_item', id=item.id) }}"
+                        class="secondary-content btn-small delete-item red darken-1 right">Delete item</a>
+                    <button type="submit" class="btn-small blue darken-1 right">Update</button>
+                </div>
+                {% else %}
+                <div class="col s6">
+                    <div class="input-field inline right">
+                        <input type="number" name="amount" min="1" max="10" value="{{ item.amount }}"
+                            class="amount_width">
+                        <label for="amount" class="active">Amount</label>
+                    </div>
+                    <span class="right price_per_item">{{item.dish.price * item.amount}}₪</span>
+                </div>
+                <br>
+                <div class="col s4">
+                    <a href="{{ url_for('delete_item', id=item.id) }}"
+                        class="secondary-content btn-small delete-item red darken-1 right">Delete items</a>
+                    <button type="submit" class="btn-small blue darken-1 right">Update</button>
+                </div>
+                {% endif %}
+            </div>
+        </form>
+    </li>
+
+    {% endfor %}
+    <li class="collection-item top-border">The bill is a total of :
+        <span class="right">{{calculate_order}}₪</span>
+    </li>
+</ul>
+<div class="centerize bigger-text">Please fill in the following details for your delivery :</div>
+<div class="row">
+    <form action="{{url_for('confirm_delivery')}}" method="POST" class="col s12">
+        <div class="row">
+            <div class="input-field col s6">
+                <input placeholder="Delivery Address" id="delivery_address" type="text" class="validate" required
+                    name="delivery_address">
+                <label for="delivery_address">Delivery Address : </label>
+            </div>
+            <div class="input-field col s6">
+                <input id="Phone_number" type="text" class="validate" required name="phone_number">
+                <label for="Phone_number">Phone Number</label>
+            </div>
+            <div class="input-field col s12">
+                <input id="comments" type="text" class="validate" name="comments">
+                <label for="comments">Comments</label>
+                <div class="red-text">Disclaimer : an order can only be changed by calling the business and only 15
+                    minutes after placing the order.</div>
+            </div>
+        </div>
+        <div class="centerize">
+            <a href="{{url_for('all_dishes')}}" class="waves-effect waves-light btn-small right">To continue
+                ordering</a>
+            <button type="submit" class="waves-effect waves-light btn-small left">Confirm Order</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'layout.html' %}
+{% block content %}
+<h4>Welcome staff member</h4>
+<h5>In this page you can create new categories</h5>
+<div class="row">
+    <form class="col s12" action="{{url_for ('create_category')}}" method="POST">
+        <div class="row">
+            <div class="input-field col s12">
+                <input placeholder="Category name" id="category_name" type="text" class="validate" name="category_name"
+                    required>
+                <label for="category_name">Category name :</label>
+            </div>
+            <div class="input-field col s12">
+                <input placeholder="Category image URL" id="image_url" type="text" class="validate" name="image_url"
+                    required>
+                <label for="image_url">Category image URL :</label>
+            </div>
+        </div>
+        <button type="submit" class="waves-effect waves-light btn-small">Accept</button>
+        <a href="{{url_for('manage_categories')}}" class="waves-effect waves-light btn-small">No , back to
+            categories</a>
+        <a href="{{url_for('main_page')}}" class="waves-effect waves-light btn-small right">Back to Main</a>
+    </form>
+</div>
+
+{% endblock %}

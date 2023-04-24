@@ -1,0 +1,108 @@
+{% extends 'layout.html' %}
+{% block content %}
+<br>
+<div dir="rtl">
+    <a class="waves-effect waves-light btn-small" href="{{url_for('show_user')}}">Go to user overview</a>
+    <a class="waves-effect waves-light btn-small left" href="{{url_for('show_cart')}}">To see cart</a>
+</div>
+
+{% with success = get_flashed_messages(category_filter=['success']) %}
+{% if success %}
+{% for message in success%}
+<div class="alert alert-success centerize green-text text-darken-1 bigger-text" role="alert">{{message}}</div>
+{% endfor %}
+{% endif %}
+{% endwith %}
+
+{% with error = get_flashed_messages(category_filter=['error']) %}
+{% if error %}
+{% for message in error %}
+<div class="alert alert-danger centerize red-text text-darken-1 bigger-text" role="alert">{{message}}</div>
+{% endfor %}
+{% endif %}
+{% endwith %}
+
+<div class="centerize">
+    <h4>Hello {{current_user.username}} , Welcome to Fast Deliveries!</h4>
+    <h4>These are our available food categories : </h4>
+</div>
+<div class="blue-grey lighten-4">
+    <div class="col s12">
+        <nav>
+            <div class="nav-wrapper categories-nav">
+                <ul>
+                    {% for category in categories %}
+                    <li class="special-img-container">
+                        <a href="{{url_for('show_by_category',id=category.id)}}" class="black-text bold"><span
+                                class="bigger-text">{{category.category_name|title}}</span>
+                            <img class="centered-img" src="{{category.image_url}}" width="60px" height="65px"></a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </nav>
+    </div>
+</div>
+<div>
+    <p class="bigger-text"><strong>Thanks for using our services. Here are a few of our featured dishes : </strong></p>
+    <p>Some dishes will be marked with either a <span class="bold">vegeterian icon</span> = <span><img
+                src="https://seeklogo.com/images/V/vegetarian-logo-537021D71D-seeklogo.com.png" class="dish-icons"
+                alt="Vegeterian"></span> or ,
+        <span class="bold">gluten free</span> = <span><img
+                src="https://c8.alamy.com/comp/2E5TNB2/gluten-free-vector-icon-isolated-symbol-2E5TNB2.jpg"
+                class="dish-icons" alt="Gluten free"></span> to indicate whether the product has them.
+    </p>
+</div>
+{% for category in categories %}
+<div class="row">
+    <h3 class="categories_underline center grey-text text-darken-2">{{ category.category_name|title}}</h3>
+    {% for dish in dishes if dish.category == category %}
+    <div class="col s12 m4">
+        <div class="card">
+            <div class="card-image">
+                <img src="{{ dish.imageURL }}" class="card-image1">
+            </div>
+            <div class="card-content">
+                <div class="container-price-icon">
+                    <h6>Price : {{ dish.price }}₪</h6>
+                    {% if dish.is_vegeterian %}
+                    <img class="dish-icons a-bit-margin"
+                        src="https://seeklogo.com/images/V/vegetarian-logo-537021D71D-seeklogo.com.png">
+                    {% endif %}
+                    {% if dish.is_gluten_free %}
+                    <img class="dish-icons a-bit-margin"
+                        src="https://c8.alamy.com/comp/2E5TNB2/gluten-free-vector-icon-isolated-symbol-2E5TNB2.jpg">
+                    {% endif %}
+                    {% if dish.is_gluten_free == False and dish.is_vegeterian == False %}
+                    {% endif %}
+                </div>
+                <h6 class="bigger-text">{{ dish.dish_name }}</h6>
+                <p class="smaller-text">{{ dish.description|truncate(200) }}</p>
+                <div>
+                    <form action="{{ url_for('new_cart') }}" method="POST">
+                        <div class="container-price-icon">
+                            <div class="col s3">
+                                <div class="input-field">
+                                    <input type="number" name="amount" value="1" min="1" max="10">
+                                    <label for="amount">Amount</label>
+                                </div>
+                            </div>
+                            <div class="col s9">
+                                <button type="submit" class="waves-effect waves-light btn-small" name="dish_id"
+                                    value="{{ dish.id }}">
+                                    Add to cart<i class="material-icons left">
+                                        <img src="{{ url_for('static',filename='images/cart_icon.png') }}"
+                                            alt="add to cart" class="dish-icons cart-icon">
+                                    </i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'layout.html' %}
+{% block content %}
+<h4>Are you sure to delete this category?</h4>
+<ul class="collection with-header">
+    <li class="collection-header">
+        <h4>Category information</h4>
+    </li>
+    <li class="collection-item"> <span class="bold"> Category ID </span>: {{category.id}}</li>
+    <li class="collection-item">
+        <span class="bold"> Category Name </span>: {{category.category_name|title}}
+    </li>
+    <li class="collection-item edit_delete_img">
+        <span class="bold"> Category image </span>:
+        <img src="{{category.image_url}}" class="edit_delete_img">
+    </li>
+    <br>
+    <div class="bold">Containing the dishes :
+    </div>
+    <ul>
+        <li class="dish_list">
+            {% if category.dishes %}
+            {% for dish in category.dishes %}
+            {{dish.dish_name}} <br>
+            {% endfor %}
+            {% else %}
+            <div class="dish_list">There are no dishes yet</div>
+            {% endif %}
+        </li>
+    </ul>
+</ul>
+<form action="{{url_for('delete_category',id=category.id)}}" method="POST">
+    <button type="submit" class="waves-effect waves-light btn-small">Accept</button>
+    <a href="{{url_for('manage_categories')}}" class="waves-effect waves-light btn-small">No , back to category</a>
+    <a href="{{url_for('main_page')}}" class="waves-effect waves-light btn-small right">Back to Main</a>
+</form>
+{% endblock %}

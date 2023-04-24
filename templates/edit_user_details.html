@@ -1,0 +1,96 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+{% with success = get_flashed_messages(category_filter=['success']) %}
+{% if success %}
+{% for message in success%}
+<div class="alert alert-success centerize green-text text-darken-1 bigger-text" role="alert">{{message}}</div>
+{% endfor %}
+{% endif %}
+{% endwith %}
+
+{% with error = get_flashed_messages(category_filter=['error']) %}
+{% if error %}
+{% for message in error %}
+<div class="alert alert-danger centerize red-text text-darken-1 bigger-text" role="alert">{{message}}</div>
+{% endfor %}
+{% endif %}
+{% endwith %}
+
+<div class="centerize">
+    <h3 class="bold">Welcome to the edit page {{current_user.username}}!</h3>
+</div>
+
+<h6>Please fill/change the following details in order to update your account : </h6>
+<p class="red-text">Disclaimer : to change any details in your account you must enter password in the "Current password"
+    field</p>
+<div class="row">
+    <form class="col s7" action="{{url_for('edit_user_details')}}" method="POST" novalidate>
+        <div class="row">
+            <div class="input-field col s12">
+                <input id="username" type="text" class="validate" name="username" placeholder="Username"
+                    value="{{current_user.username}}">
+                <label for="username">Username :</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <input id="current_password" type="password" class="validate" name="current_password"
+                    placeholder="Current password">
+                <label for="current_password">Current Password :</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <input id="password" type="password" class="validate" name="password" placeholder="Desired Password">
+                <label for="password">Desired Password :</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <input id="Confirm Password" type="password" class="validate" name="confirm_password"
+                    placeholder="Confirm desired password">
+                <label for="Confirm Password">Confirm desired password :</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s6">
+                <input placeholder="First name" id="first_name" type="text" name="first_name"
+                    value="{{current_user.first_name}}">
+                <label for="first_name">First Name :</label>
+            </div>
+            <div class="input-field col s6">
+                <input placeholder="Last name" id="last_name" type="text" class="validate" name="last_name"
+                    value="{{current_user.last_name}}">
+                <label for="last_name">Last Name :</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12">
+                Please fill your Email here:
+                <div class="input-field inline">
+                    <input id="email_inline" type="email" class="validate" name="email" placeholder="Email"
+                        value="{{current_user.email}}">
+                    <label for="email_inline">Email :</label>
+                    <span class="helper-text" data-error="wrong format" data-success="right format">Validation</span>
+                </div>
+            </div>
+        </div>
+        <p>
+            <label>
+                <input type="checkbox" class="filled-in" checked="checked" name="submit_changes" />
+                <span>Are you sure you want these changes in details?</span>
+            </label>
+        </p>
+        <p class="grey-text text-darken-1">We'll never share your details with anyone.</p>
+        <div class="row">
+            <div class="col s12">
+                <button type="submit" class="btn waves-effect waves-light">Edit</button>
+                <a href="{{url_for('main_page')}}" class="btn waves-effect waves-light blue">Back to main page</a>
+            </div>
+        </div>
+
+</div>
+</form>
+</div>
+{% endblock %}

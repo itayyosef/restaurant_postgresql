@@ -1,0 +1,76 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+{% with error = get_flashed_messages(category_filter=['error']) %}
+{% if error %}
+{% for message in error %}
+<div class="alert alert-danger centerize red-text text-darken-1 bigger-text" role="alert">{{message}}</div>
+{% endfor %}
+{% endif %}
+{% endwith %}
+
+<div class="center">
+    <h4>Welcome staff member</h4>
+    <h5>Now editing the <span class="bold">{{dish.dish_name}}</span> dish :</h5>
+</div>
+<div class="row">
+    <form class="col s12" action="{{url_for ('edit_dish',id=dish.id)}}" method="POST">
+        <div class="row">
+            <div class="input-field col s12">
+                <select class="browser-default" name="category_dish">
+                    {% for category in categories %}
+                    <option value="{{category.id}}">{{category.category_name|title}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input placeholder="Dish name" id="dish_name" type="text" class="validate" name="dish_name"
+                        value="{{dish.dish_name}}" required>
+                    <label for="dish_name">Dish name :</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input placeholder="Price" id="price" type="number" step="0.5" class="validate" name="price"
+                        value="{{dish.price}}" required>
+                    <label for="price">Price :</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input placeholder="Description" id="description" type="text" class="validate" name="description"
+                        value="{{dish.description}}" required>
+                    <label for="description">Description :</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input placeholder="image URL" id="imageURL" type="text" class="validate" name="image_URL"
+                        value="{{dish.imageURL}}" required>
+                    <label for="imageURL">Image URL :</label>
+                </div>
+            </div>
+            <div>
+                <img src="{{dish.imageURL}}" alt="Dish image" style="width:150px;height:150px">
+            </div>
+            <p>
+                <label>
+                    <input type="checkbox" name="is_gluten_free" {% if dish.is_gluten_free %} checked {% endif %} />
+                    <span>Is it gluten free?</span>
+                </label>
+            </p>
+            <p>
+                <label>
+                    <input type="checkbox" name="is_vegetarian" {% if dish.is_vegeterian %} checked {% endif %} />
+                    <span>Is it vegetarian?</span>
+                </label>
+            </p>
+            <button type="submit" class="waves-effect waves-light btn-small">Accept</button>
+            <a href="{{url_for('manage_dishes')}}" class="waves-effect waves-light btn-small">No , back to
+                dishes</a>
+            <a href="{{url_for('main_page')}}" class="waves-effect waves-light btn-small right">Back to Main</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

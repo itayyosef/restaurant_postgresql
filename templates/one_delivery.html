@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+{% block content %}
+<br>
+<div dir="rtl">
+    <a class="waves-effect waves-light btn-small" href="{{url_for('show_user')}}">Go to user overview</a>
+</div>
+
+{% with success = get_flashed_messages(category_filter=['success']) %}
+{% if success %}
+{% for message in success%}
+<div class="alert alert-success centerize green-text text-darken-1 bigger-text" role="alert">{{message}}</div>
+{% endfor %}
+{% endif %}
+{% endwith %}
+
+<h2 class="bigger-text orange-text lighten-1">Thank you! your order will be prepared shortly</h2>
+<h3>The current order is :</h3>
+<ul class="collection">
+    <li class="collection-item">Delivery Serial Number : {{delivery.id}}</li>
+    <li class="collection-item">Delivery Address : {{delivery.address}}</li>
+    <li class="collection-item">Delivery Comments : {{delivery.comments}}</li>
+    <li class="collection-item">Phone for delivery : {{delivery.phone_for_delivery}}</li>
+    <li class="collection-item">Price in total : {{calculate_order}}₪ </li>
+    <li class="collection-item">Order made in : {{delivery.created.strftime("%d/%m/%Y at %H:%M")}}</li>
+
+</ul>
+{% endblock %}

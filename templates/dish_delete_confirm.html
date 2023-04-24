@@ -1,0 +1,44 @@
+{% extends 'layout.html' %}
+{% block content %}
+<h4>Are you sure to delete this Dish?</h4>
+<ul class="collection with-header">
+    <li class="collection-header">
+        <h4>Dish information</h4>
+    </li>
+    <li class="collection-item"> <span class="bold"> Dish ID </span>: {{dish.id}}</li>
+    <li class="collection-item">
+        <span class="bold"> Dish Name </span>: {{dish.dish_name|title}}
+    </li>
+    <li class="collection-item">
+        <span class="bold"> Dish Price </span>: {{dish.price}} ₪
+    </li>
+    <li class="collection-item">
+        <div class="bold "> Dish image :</div>
+        <img src="{{dish.imageURL}}" style="width:150px;height:150px">
+    </li>
+    <li class="collection-item">
+        <span class="bold"> Dish Description </span>: {{dish.description|title}}
+    </li>
+    <li class="collection-item">
+        <span class="bold"> Is it vegeterian - </span>
+        {% if dish.is_vegeterian %}
+        Yes
+        {% else %}
+        No
+        {% endif %}
+    </li>
+    <li class="collection-item">
+        <span class="bold"> Is it gluten free? </span>
+        {% if dish.is_gluten_free %}
+        Yes
+        {% else %}
+        No
+        {% endif %}
+    </li>
+</ul>
+<form action="{{url_for('delete_dish',id=dish.id)}}" method="POST">
+    <button type="submit" class="waves-effect waves-light blue btn-small">Accept</button>
+    <a href="{{url_for('manage_categories')}}" class="waves-effect waves-light blue btn-small">No , back to category</a>
+    <a href="{{url_for('main_page')}}" class="waves-effect waves-light btn-small blue right">Back to Main</a>
+</form>
+{% endblock %}

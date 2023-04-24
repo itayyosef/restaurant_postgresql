@@ -1,0 +1,53 @@
+{% if current_user.is_authenticated %}
+{% if current_user.is_staff %}
+<nav>
+    <div class="nav-wrapper grey darken-3">
+        <a href="{{url_for ('main_page')}}" class="brand-logo">
+            <img src="{{url_for ('static',filename='images/navbar_image.png')}}" alt="Logo"> Fast Deliveries
+        </a>
+        <ul class="right">
+            <span class="smaller-text left">053-23231312 | השלושה 5 , יהוד</span>
+            <li><a href="{{url_for ('manage_categories')}}">Show categories</a></li>
+            <li><a href="{{url_for ('manage_dishes')}}">Show dishes</a></li>
+            <li><a href="{{url_for ('manage_deliveries')}}">All deliveries</a></li>
+        </ul>
+    </div>
+</nav>
+<div dir="rtl">
+    <a href="{{url_for ('logout')}}" class="bold">Logout
+        <img class="logout-btn" src="{{ url_for('static',filename='images/logout_icon.png') }}" alt="Signout">
+    </a>
+</div>
+{% else %}
+<nav>
+    <div class="nav-wrapper grey darken-3">
+        <a href="{{url_for ('main_page')}}" class="brand-logo">
+            <img src="{{url_for ('static',filename='images/navbar_image.png')}}" alt="Logo"> Fast Deliveries
+        </a>
+        <ul class="right">
+            <span class="smaller-text left">053-23231312 | השלושה 5 , יהוד</span>
+            <li><a href="{{url_for ('show_cart')}}">Show cart</a></li>
+            <li><a href="{{url_for ('all_dishes')}}">All Dishes</a></li>
+            <li><a href="{{url_for ('show_user')}}">To User</a></li>
+        </ul>
+    </div>
+</nav>
+<div dir="rtl">
+    <a href="{{url_for ('logout')}}" class="bold">Logout
+        <img class="logout-btn" src="{{ url_for('static',filename='images/logout_icon.png') }}" alt="Signout"></a>
+</div>
+{% endif %}
+{% else %}
+<nav>
+    <div class="nav-wrapper grey darken-3">
+        <a href="{{url_for ('main_page')}}" class="brand-logo">
+            <img src="{{url_for ('static',filename='images/navbar_image.png')}}" alt="Logo"> Fast Deliveries
+        </a>
+        <ul class="right">
+            <span class="smaller-text left">053-23231312 | השלושה 5 , יהוד</span>
+            <li><a href="{{url_for ('new_signup')}}">Sign up</a></li>
+            <li><a href="{{url_for ('login') }}">Log in</a></li>
+        </ul>
+    </div>
+</nav>
+{% endif %}
