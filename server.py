@@ -1,10 +1,7 @@
 from flask import Flask,render_template,request,redirect,url_for,flash
 from db import db
 from datetime import datetime as dt
-from datetime import timedelta
 from flask_login import LoginManager,UserMixin,login_user,current_user,login_required,logout_user
-from flask_admin import Admin
-from flask_admin.contrib.sqla import ModelView
 from signup_form import SignupForm
 
 # app init stage
