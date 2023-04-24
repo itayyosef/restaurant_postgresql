@@ -15,6 +15,7 @@ app.config['SECRET_KEY'] = '2345iok45j34nitm345fg0-2[tv345g23452]fg34'
 # db init stage
 db.init_app(app)
 
+
 #init login_manager 
 login_manager = LoginManager()
 login_manager.init_app(app)
