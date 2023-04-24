@@ -6,10 +6,22 @@
     <a class="waves-effect waves-light btn-small left" href="{{url_for('show_cart')}}">To see cart</a>
 </div>
 
+<style>
+    .toast {
+        position: fixed;
+        top: 60%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        margin-top:127px
+      }
+</style>
+
 {% with success = get_flashed_messages(category_filter=['success']) %}
 {% if success %}
 {% for message in success%}
-<div class="alert alert-success centerize green-text text-darken-1 bigger-text" role="alert">{{message}}</div>
+    <script classes="toast-container">
+        M.toast({html: '{{message}}',displayLength:5000,classes: 'rounded green'})
+    </script>
 {% endfor %}
 {% endif %}
 {% endwith %}
@@ -17,8 +29,9 @@
 {% with error = get_flashed_messages(category_filter=['error']) %}
 {% if error %}
 {% for message in error %}
-<div class="alert alert-danger centerize red-text text-darken-1 bigger-text" role="alert">{{message}}</div>
-{% endfor %}
+<script>
+    M.toast({html: '{{message}}',displayLength:5000,classes: 'rounded red'})
+</script>{% endfor %}
 {% endif %}
 {% endwith %}
 
