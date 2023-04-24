@@ -10,7 +10,7 @@ delivery = Delivery(
             flash("Error creating delivery: {}".format(str(e)),"error")
             return redirect(url_for("all_dishes"))
 
-
+#  
 def confirmed_delivery():
     if request.method == "POST":
         delivery = Delivery(
