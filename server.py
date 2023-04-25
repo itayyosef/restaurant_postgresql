@@ -525,37 +525,3 @@ def is_not_staff_member():
 
 if __name__ == "__main__":
     app.run(debug=True)
-
-
-
-
-# @app.route('/return_book/<int:id>', methods=['GET','POST'])
-# @login_required
-# def return_book(id):
-#     loan = Loan.query.get(id)
-#     if loan:
-#         if not loan.did_return:
-#             loan.did_return = True
-#             db.session.commit()
-#             flash('Book successfully returned!', 'success')
-#         else:
-#             flash('Book has already been returned', 'error')
-#     else:
-#         flash('Invalid loan ID', 'error')
-#     return redirect(url_for('show_user'))
-
-
-
-
-#  <div>{{last_delivery.address}}</div>
-# <div>{{last_delivery.comments}}</div>
-# <div>{{last_delivery.created}}</div> 
-# {% if last_delivery.is_delivered %}
-#     <p>Your order has been delivered!</p>
-#     {% else %}
-#     <p>Your order is on it's way</p>
-#     {% endif %}
-
-    # current_user_carts = current_user.carts
-    # previous_cart = current_user_carts[-1]
-    # previous_delivery = previous_cart.delivery ,previous_delivery=previous_delivery
