@@ -1,8 +1,11 @@
 {% extends 'layout.html' %}
 {% block content %}
 <br>
-<div dir="rtl">
-    <a class="waves-effect waves-light btn-small" href="{{url_for('show_user')}}">Go to user overview</a>
+<div class="center">
+    <a class="waves-effect waves-light btn-small right" href="{{url_for('show_user')}}">Go to user overview</a>
+    <a href="{{url_for('main_page')}}" class="waves-effect waves-light btn-small center" style="margin-left:60px">Back
+        to
+        Main</a>
     <a class="waves-effect waves-light btn-small left" href="{{url_for('show_cart')}}">To see cart</a>
 </div>
 

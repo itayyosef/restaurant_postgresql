@@ -1,19 +1,26 @@
 {% extends 'layout.html' %}
 {% block content %}
-<div class="centerize">
-    <br>
-    <div>
-        <h4 class="bold">Welcome to quick deliveries</h4>
-        <h5 class="bold">Please choose one of the following options : </h5>
-        <br>
-        <div>
-            <a href="{{url_for('new_signup')}}" class="waves-effect waves-light btn-small">Signup</a>
-        </div>
-        <br>
-        <div>
-            <a href="{{url_for('login')}}" class="waves-effect waves-light btn-small">Login</a>
-        </div>
-    </div>
-    <br>
+<div class="center">
+    <h2>Welcome to Fast Deliveries</h2>
 </div>
+<div class="bold">Fast Deliveries was made in 1997 and have been running for over 25 years , with the effort and purpose
+    of making the fastest deliveries in the market for our customer's comfort.
+</div>
+
+<p class="bigger-text"> Do you feel like delighting your palate with a particularly delicious meal, but don't have
+    time to get to the restaurant? <br>
+    On the Fast Delivery site - the home run , most diverse and up-to-date in Israel - we offer a wide
+    variety of food deliveries. <br>
+    The site makes tens of visual dishes available for you from our restaurant nationwide. <br>
+    Through the delivery site you can place food delivery orders online or by phone in the most efficient,
+    simplest and shortest way and enjoy a culinary browsing experience. <br>
+    So bon appetit, the delivery is already on its way to you.
+</p>
+<div class="center">
+    <h5>To continue to the site please choose one of the following</h5>
+    <a href="{{url_for('login')}}" class="waves-effect waves-light btn small-margin-right">Login Now!</a>
+    <a href="{{url_for('new_signup')}}" class="waves-effect waves-light blue btn dish_list">Signup Now! </a>
+</div>
+<br>
+<img src="https://rddmag.com/images/2019/09/form_function-evviva-1.jpg" alt="" style="width:1100px;height:450px">
 {% endblock %}

@@ -25,28 +25,28 @@
     <h3 class="bold">Welcome to the Login page </h3>
 </div>
 <br>
-<h6>Please fill the following details to log into the website : </h6>
+<h6 class="bold">Please fill the following details to log into the website : </h6>
 <br>
 <div class="row">
     <form class="col s12" action="{{url_for('login')}}" method="POST">
         <div class="row">
             <div class="input-field col s12">
                 <input placeholder="Username" id="user_name" type="text" name="username">
-                <label for="user_name">Username :</label>
+                <label for="user_name" class="bigger-text black-text">Username :</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
                 <input placeholder="Password" id="password" type="password" name="password">
-                <label for="password">Password :</label>
-                <div class="grey-text text-darken-1">We'll never share your details with anyone.</div>
+                <label for="password" class="bigger-text black-text">Password :</label>
+                <div class="grey-text text-darken-1 bold">We'll never share your details with anyone.</div>
             </div>
         </div>
         <div class="row">
             <div class="col s12">
                 <label>
                     <input type="checkbox" name="remember_me" class="filled-in" />
-                    <span>Remember me</span>
+                    <span class="black-text bold">Remember me</span>
                 </label>
             </div>
         </div>

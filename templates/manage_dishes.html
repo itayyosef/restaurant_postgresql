@@ -39,13 +39,16 @@
         <br>
         <a href="{{url_for ('delete_dish',id=dish.id)}}" class="btn-small red darken-2" name="dish_id"
             value="{{dish.id}}">
-            Delete dish<i class="material-icons left">
+            Delete dish
+            <i class="material-icons left icons_staff">
                 <img src="{{url_for('static',filename='images/delete_icon.png')}}" alt="Delete dish"
                     class="dish-icons cart-icon">
             </i>
-        </a> <a href="{{url_for ('edit_dish',id=dish.id)}}" class="btn-small orange darken-2" name="dish_id"
+        </a>
+        <a href="{{url_for ('edit_dish',id=dish.id)}}" class="btn-small orange darken-2" name="dish_id"
             value="{{dish.id}}">
-            edit dish<i class="material-icons left">
+            edit dish
+            <i class="material-icons left icons_staff">
                 <img src="{{url_for('static',filename='images/edit_icon.png')}}" alt="Edit dish"
                     class="dish-icons cart-icon">
             </i>

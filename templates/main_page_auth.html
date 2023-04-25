@@ -20,25 +20,38 @@
 <strong>There is a list of things you are able to do as a staff member :</strong>
 <ul class="collection">
     <li class="collection-item">1. Manage deliveries : check done deliveries and change their status.
-        <div class="center">
+        <div class="center small-margin-top">
             <a href="{{url_for ('manage_deliveries') }}" class="waves-effect waves-light blue darken-1 btn-small">All
                 Deliveries</a>
         </div>
     </li>
     <li class="collection-item">2. Manage food categories : delete , add and chang the site's categories.
-        <div class="center">
+        <div class="center small-margin-top">
             <a href="{{url_for ('manage_categories') }}" class="waves-effect waves-light blue darken-1 btn-small">All
                 Categories</a>
         </div>
     </li>
     <li class="collection-item">3. Manage dishes : delete , add and change the site's dishes.
-        <div class="center">
+        <div class="center small-margin-top">
             <a href="{{url_for ('manage_dishes') }}" class="waves-effect waves-light blue darken-1 btn-small">All
                 Dishes</a>
         </div>
     </li>
 </ul>
+<div class="centerize bigger-text">
+    <div class="small-margin"> Staff member</div>
+    <div>Short instructions :</div>
+    <p class="bold">1. Please remember to handle the site's data with good care</p>
+    <p class="bold">2. keep only good images in the restaurant's menu and categories</p>
+    <p class="bold">3. Please make sure the deliveries are out before checking them as complete.</p>
+</div>
 {% else %}
+
+<br>
+<div dir="rtl">
+    <a class="waves-effect waves-light btn-small" href="{{url_for('show_user')}}">Go to user overview</a>
+    <a class="waves-effect waves-light btn-small left" href="{{url_for('all_dishes')}}">Check our menu</a>
+</div>
 
 {% with error = get_flashed_messages(category_filter=['error']) %}
 {% if error %}
@@ -48,6 +61,22 @@
 {% endif %}
 {% endwith %}
 
-<h1>Welcome to quick deliveries</h1>
+<div class="center">
+    <h2>Welcome to Fast Deliveries {{current_user.username}}!</h2>
+</div>
+<div class="bold">Fast Deliveries was made in 1997 and have been running for over 25 years , with the effort and purpose
+    of making the fastest deliveries in the market for our customer's comfort.
+</div>
+
+<p class="bigger-text"> Do you feel like delighting your palate with a particularly delicious meal, but don't have
+    time to get to the restaurant? <br>
+    On the Fast Delivery site - the home run , most diverse and up-to-date in Israel - we offer a wide
+    variety of food deliveries. <br>
+    The site makes tens of visual dishes available for you from our restaurant nationwide. <br>
+    Through the delivery site you can place food delivery orders online or by phone in the most efficient,
+    simplest and shortest way and enjoy a culinary browsing experience. <br>
+    So bon appetit, the delivery is already on its way to you.
+</p>
+<img src="https://rddmag.com/images/2019/09/form_function-evviva-1.jpg" alt="" style="width:1100px;height:500px">
 {% endif %}
 {% endblock %}

@@ -22,50 +22,50 @@
         <div class="row">
             <div class="input-field col s12">
                 {{form.username(placeholder="Username",id="username")}}
-                <label for="username" class="bold">Username :</label>
+                <label for="username" class="bigger-text black-text">Username :</label>
                 {% for error in form.username.errors %}
                 <div>
-                    <span class="red-text">{{error}}</span>
+                    <span class="red-text bold">{{error}}</span>
                 </div>
                 {% endfor %}
             </div>
 
             <div class="input-field col s12">
                 {{form.password(placeholder="Password",id="password")}}
-                <label for="password" class="bold">Password :</label>
+                <label for="password" class="bigger-text black-text">Password :</label>
                 {% for error in form.password.errors %}
                 <div>
-                    <span class="red-text">{{error}}</span>
+                    <span class="red-text bold">{{error}}</span>
                 </div>
                 {% endfor %}
             </div>
 
             <div class="input-field col s12">
                 {{form.confirm_password(placeholder="Confirm Password",id="confirm_password")}}
-                <label for="confirm_password" class="bold">Confirm Password :</label>
+                <label for="confirm_password" class="bigger-text black-text">Confirm Password :</label>
                 {% for error in form.confirm_password.errors %}
                 <div>
-                    <span class="red-text">{{error}}</span>
+                    <span class="red-text bold">{{error}}</span>
                 </div>
                 {% endfor %}
             </div>
 
             <div class="input-field col s6">
                 {{form.first_name(placeholder="First Name",id="first_name")}}
-                <label for="first_name" class="bold">First Name :</label>
+                <label for="first_name" class="bigger-text black-text">First Name :</label>
                 {% for error in form.first_name.errors %}
                 <div>
-                    <span class="red-text">{{error}}</span>
+                    <span class="red-text bold">{{error}}</span>
                 </div>
                 {% endfor %}
             </div>
 
             <div class="input-field col s6">
                 {{form.last_name(placeholder="Last Name",id="last_name")}}
-                <label for="last_name" class="bold">Last Name :</label>
+                <label for="last_name" class="bigger-text black-text">Last Name :</label>
                 {% for error in form.last_name.errors %}
                 <div>
-                    <span class="red-text">{{error}}</span>
+                    <span class="red-text bold">{{error}}</span>
                 </div>
                 {% endfor %}
             </div>
@@ -75,15 +75,15 @@
                 Please fill your Email here:
                 <div class="input-field inline">
                     {{form.email(placeholder="Email",id="email_inline")}}
-                    <label for="email_inline">Email :</label>
+                    <label for="email_inline" class="bigger-text black-text">Email :</label>
                     {% for error in form.email.errors %}
                     <div>
-                        <span class="red-text">{{error}}</span>
+                        <span class="red-text bold">{{error}}</span>
                     </div>
                     {% endfor %}
                     <span class="helper-text">Indicator</span>
                 </div>
-                <div class="grey-text text-darken-1">We'll never share your details with anyone.</div>
+                <div class="grey-text text-darken-1 bold">We'll never share your details with anyone.</div>
             </div>
         </div>
         <div class="row">

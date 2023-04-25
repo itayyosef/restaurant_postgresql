@@ -1,26 +1,49 @@
 {% extends 'layout.html' %}
 {% block content %}
-<h4>Welcome staff member</h4>
-<h5>In this page you can create new categories</h5>
+<br>
+<div dir="rtl">
+    <div class="center">
+        <a href="{{url_for ('manage_deliveries')}}" class="waves-effect waves-light grey darken-1 btn-small">All
+            Deliveries
+        </a>
+        <a href="{{url_for ('main_page') }}" class="waves-effect waves-light grey darken-1 btn-small right">Back to main
+            page
+        </a>
+        <a href="{{url_for ('manage_dishes')}}"
+            class="waves-effect waves-light grey darken-1 btn-small left a-bit-margin">All Dishes
+        </a>
+    </div>
+</div>
+<div class="center">
+    <h4>Welcome staff member</h4>
+    <h5>In this page you can create new categories</h5>
+</div>
+<br>
 <div class="row">
     <form class="col s12" action="{{url_for ('create_category')}}" method="POST">
+        <br>
         <div class="row">
             <div class="input-field col s12">
                 <input placeholder="Category name" id="category_name" type="text" class="validate" name="category_name"
                     required>
-                <label for="category_name" class="bigger-text">Category name :</label>
+                <label for="category_name" class="bigger-text black-text">Category name :</label>
             </div>
             <div class="input-field col s12">
                 <input placeholder="Category image URL" id="image_url" type="text" class="validate" name="image_url"
                     required>
-                <label for="image_url" class="bigger-text">Category image URL :</label>
+                <label for="image_url" class="bigger-text black-text">Category image URL :</label>
             </div>
         </div>
+        <br>
         <button type="submit" class="waves-effect waves-light btn-small">Accept</button>
         <a href="{{url_for('manage_categories')}}" class="waves-effect waves-light btn-small">No , back to
             categories</a>
         <a href="{{url_for('main_page')}}" class="waves-effect waves-light btn-small right">Back to Main</a>
+        <div class="centerize bigger-text">Staff member</div>
+        <p class="bold">1. Please remember to add categories with care and good quality pictures as it affects the
+            restaurant's
+            sales.</p>
+        <p class="bold">2. Please spell check the names of the categories before the adding.</p>
     </form>
 </div>
-
 {% endblock %}

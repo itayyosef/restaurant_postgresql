@@ -21,6 +21,10 @@
 {% endif %}
 {% endwith %}
 
+<br>
+<div dir="rtl">
+    <a href="{{url_for ('show_user') }}" class="waves-effect waves-light btn-small">To User Overview</a>
+</div>
 <div class="centerize">
     <h3 class="bold">Welcome to the edit page {{current_user.username}}!</h3>
 </div>
@@ -34,39 +38,39 @@
             <div class="input-field col s12">
                 <input id="username" type="text" class="validate" name="username" placeholder="Username"
                     value="{{current_user.username}}">
-                <label for="username">Username :</label>
+                <label for="username" class="bigger-text black-text">Username :</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
                 <input id="current_password" type="password" class="validate" name="current_password"
                     placeholder="Current password">
-                <label for="current_password">Current Password :</label>
+                <label for="current_password" class="bigger-text black-text">Current Password :</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
                 <input id="password" type="password" class="validate" name="password" placeholder="Desired Password">
-                <label for="password">Desired Password :</label>
+                <label for="password" class="bigger-text black-text">Desired Password :</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
                 <input id="Confirm Password" type="password" class="validate" name="confirm_password"
                     placeholder="Confirm desired password">
-                <label for="Confirm Password">Confirm desired password :</label>
+                <label for="Confirm Password" class="bigger-text black-text">Confirm desired password :</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s6">
                 <input placeholder="First name" id="first_name" type="text" name="first_name"
                     value="{{current_user.first_name}}">
-                <label for="first_name">First Name :</label>
+                <label for="first_name" class="bigger-text black-text">First Name :</label>
             </div>
             <div class="input-field col s6">
                 <input placeholder="Last name" id="last_name" type="text" class="validate" name="last_name"
                     value="{{current_user.last_name}}">
-                <label for="last_name">Last Name :</label>
+                <label for="last_name" class="bigger-text black-text">Last Name :</label>
             </div>
         </div>
         <div class="row">
@@ -75,7 +79,7 @@
                 <div class="input-field inline">
                     <input id="email_inline" type="email" class="validate" name="email" placeholder="Email"
                         value="{{current_user.email}}">
-                    <label for="email_inline">Email :</label>
+                    <label for="email_inline" class="bigger-text black-text">Email :</label>
                     <span class="helper-text" data-error="wrong format" data-success="right format">Validation</span>
                 </div>
             </div>
@@ -83,14 +87,15 @@
         <p>
             <label>
                 <input type="checkbox" class="filled-in" checked="checked" name="submit_changes" />
-                <span>Are you sure you want these changes in details?</span>
+                <span class="bigger-text black-text">Are you sure you want these changes in details?</span>
             </label>
         </p>
-        <p class="grey-text text-darken-1">We'll never share your details with anyone.</p>
+        <p class="grey-text text-darken-1 bold">We'll never share your details with anyone.</p>
         <div class="row">
             <div class="col s12">
-                <button type="submit" class="btn waves-effect waves-light">Edit</button>
-                <a href="{{url_for('main_page')}}" class="btn waves-effect waves-light blue">Back to main page</a>
+                <button type="submit" class="btn waves-effect waves-light">Edit details</button>
+                <a href="{{url_for('main_page')}}" class="btn waves-effect waves-light blue dish_list">Back to main
+                    page</a>
             </div>
         </div>
 

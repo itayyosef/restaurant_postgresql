@@ -7,7 +7,7 @@
             <div class="input-field col s12">
                 <input placeholder="Category name" id="category_name" type="text" class="validate" name="category_name"
                     value="{{category.category_name}}" required>
-                <label for="category_name" class="bigger-text">Category name :</label>
+                <label for="category_name" class="bigger-text black-text">Category name :</label>
             </div>
             <div>
                 <img src="{{category.image_url}}" alt="Category image" class="edit_delete_img">
@@ -16,7 +16,7 @@
                 <div class="input-field col s12">
                     <input placeholder="Image url" id="image_url" type="text" class="validate" name="image_url"
                         value="{{category.image_url}}" required>
-                    <label for="image_url" class="bigger-text">Image url :</label>
+                    <label for="image_url" class="bigger-text black-text">Image url :</label>
                 </div>
             </div>
             <div>
@@ -26,6 +26,11 @@
                 <a href="{{url_for('main_page')}}" class="waves-effect waves-light btn-small right">Back to Main</a>
             </div>
         </div>
+        <div class="centerize bigger-text">Staff member</div>
+        <p class="bold">1. Please remember to edit categories with care and good quality pictures as it affects the
+            restaurant's
+            sales.</p>
+        <p class="bold">2. Please spell check the names of the categories before the editing.</p>
     </form>
 </div>
 {% endblock %}

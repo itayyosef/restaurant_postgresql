@@ -1,9 +1,10 @@
 {% extends 'layout.html' %}
 {% block content %}
 <br>
-<div dir="rtl">
-    <a class="waves-effect waves-light btn-small" href="{{url_for('show_user')}}">Go to user overview</a>
-    <a class="waves-effect waves-light btn-small" href="{{url_for('all_dishes')}}">Go to all dishes</a>
+<div class="center">
+    <a class="waves-effect waves-light btn-small right" href="{{url_for('show_user')}}">Go to user overview</a>
+    <a class="waves-effect waves-light btn-small center" style="margin-left:45px" href="{{url_for('all_dishes')}}">To
+        all dishes</a>
     <a class="waves-effect waves-light btn-small left" href="{{url_for('show_cart')}}">To see cart</a>
 </div>
 <div class="col s12">
@@ -12,7 +13,7 @@
         <h5>Please choose from the following categories :</h5>
     </div>
     <br>
-    <div class="blue-grey lighten-5">
+    <div class="blue-grey lighten-4">
         <div class="col s12">
             <nav>
                 <div class="nav-wrapper categories-nav">

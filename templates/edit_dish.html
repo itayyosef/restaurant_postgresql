@@ -34,43 +34,43 @@
                 <div class="input-field col s12">
                     <input placeholder="Dish name" id="dish_name" type="text" class="validate" name="dish_name"
                         value="{{dish.dish_name}}" required>
-                    <label for="dish_name">Dish name :</label>
+                    <label for="dish_name" class="bigger-text black-text">Dish name :</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
                     <input placeholder="Price" id="price" type="number" step="0.5" class="validate" name="price"
                         value="{{dish.price}}" required>
-                    <label for="price">Price :</label>
+                    <label for="price" class="bigger-text black-text">Price :</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
                     <input placeholder="Description" id="description" type="text" class="validate" name="description"
                         value="{{dish.description}}" required>
-                    <label for="description">Description :</label>
+                    <label for="description" class="bigger-text black-text">Description :</label>
                 </div>
             </div>
-            <div class="row">
+            <div class="row ">
                 <div class="input-field col s12">
                     <input placeholder="image URL" id="imageURL" type="text" class="validate" name="image_URL"
                         value="{{dish.imageURL}}" required>
-                    <label for="imageURL">Image URL :</label>
+                    <label for="imageURL" class="bigger-text black-text">Image URL :</label>
                 </div>
             </div>
             <div>
-                <img src="{{dish.imageURL}}" alt="Dish image" style="width:150px;height:150px">
+                <img src="{{dish.imageURL}}" alt="Dish image" style="width:175px;height:175px">
             </div>
             <p>
                 <label>
                     <input type="checkbox" name="is_gluten_free" {% if dish.is_gluten_free %} checked {% endif %} />
-                    <span>Is it gluten free?</span>
+                    <span class="black-text bold">Is it gluten free?</span>
                 </label>
             </p>
             <p>
                 <label>
                     <input type="checkbox" name="is_vegetarian" {% if dish.is_vegeterian %} checked {% endif %} />
-                    <span>Is it vegetarian?</span>
+                    <span class="black-text bold">Is it vegetarian?</span>
                 </label>
             </p>
             <button type="submit" class="waves-effect waves-light btn-small">Accept</button>
@@ -78,6 +78,11 @@
                 dishes</a>
             <a href="{{url_for('main_page')}}" class="waves-effect waves-light btn-small right">Back to Main</a>
         </div>
+        <div class="centerize bigger-text">Staff member</div>
+        <p class="bold">1. Please remember to add categories with care and good quality pictures as it affects the
+            restaurant's
+            sales.</p>
+        <p class="bold">2. Please spell check the names of the categories before the adding.</p>
     </form>
 </div>
 {% endblock %}
