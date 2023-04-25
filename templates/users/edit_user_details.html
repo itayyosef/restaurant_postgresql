@@ -23,7 +23,7 @@
 
 <br>
 <div dir="rtl">
-    <a href="{{url_for ('show_user') }}" class="waves-effect waves-light btn-small">To User Overview</a>
+    <a href="{{url_for ('users.show_user') }}" class="waves-effect waves-light btn-small">To User Overview</a>
 </div>
 <div class="centerize">
     <h3 class="bold">Welcome to the edit page {{current_user.username}}!</h3>
@@ -33,7 +33,7 @@
 <p class="red-text">Disclaimer : to change any details in your account you must enter password in the "Current password"
     field</p>
 <div class="row">
-    <form class="col s7" action="{{url_for('edit_user_details')}}" method="POST" novalidate>
+    <form class="col s7" action="{{url_for('users.edit_user_details')}}" method="POST" novalidate>
         <div class="row">
             <div class="input-field col s12">
                 <input id="username" type="text" class="validate" name="username" placeholder="Username"

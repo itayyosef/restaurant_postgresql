@@ -17,7 +17,7 @@
 <br>
 <h6>Please fill the following details to sign up to the website : </h6>
 <div class="row">
-    <form class="col s7" action="{{url_for('new_signup')}}" method="POST" novalidate>
+    <form class="col s7" action="{{url_for('users.new_signup')}}" method="POST" novalidate>
         {{form.csrf_token}}
         <div class="row">
             <div class="input-field col s12">

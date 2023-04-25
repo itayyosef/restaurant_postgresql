@@ -2,7 +2,7 @@
 {% block content %}
 <br>
 <div dir="rtl">
-    <a class="waves-effect waves-light btn-small" href="{{url_for('show_user')}}">Go to user overview</a>
+    <a class="waves-effect waves-light btn-small" href="{{url_for('users.show_user')}}">Go to user overview</a>
 </div>
 
 {% with success = get_flashed_messages(category_filter=['success']) %}
@@ -36,7 +36,7 @@
     </li>
     {% for item in cart.items %}
     <li class="collection-item list_max_height">
-        <form action="{{ url_for('update_item', id=item.id) }}" method="post">
+        <form action="{{ url_for('carts.update_item', id=item.id) }}" method="post">
             <div class="row">
                 <div class="col s2 left">
                     <br>
@@ -57,7 +57,7 @@
                 </div>
                 <br>
                 <div class="col s4">
-                    <a href="{{ url_for('delete_item', id=item.id) }}"
+                    <a href="{{ url_for('carts.delete_item', id=item.id) }}"
                         class="secondary-content btn-small delete-item red darken-1 right">Delete item</a>
                     <button type="submit" class="btn-small blue darken-1 right">Update</button>
                 </div>
@@ -72,7 +72,7 @@
                 </div>
                 <br>
                 <div class="col s4">
-                    <a href="{{ url_for('delete_item', id=item.id) }}"
+                    <a href="{{ url_for('carts.delete_item', id=item.id) }}"
                         class="secondary-content btn-small delete-item red darken-1 right">Delete items</a>
                     <button type="submit" class="btn-small blue darken-1 right">Update</button>
                 </div>
@@ -88,7 +88,7 @@
 </ul>
 <div class="centerize bigger-text">Please fill in the following details for your delivery :</div>
 <div class="row">
-    <form action="{{url_for('confirm_delivery')}}" method="POST" class="col s12">
+    <form action="{{url_for('carts.confirm_delivery')}}" method="POST" class="col s12">
         <div class="row">
             <div class="input-field col s6">
                 <input placeholder="Delivery Address" id="delivery_address" type="text" class="validate" required
@@ -107,7 +107,7 @@
             </div>
         </div>
         <div class="centerize">
-            <a href="{{url_for('all_dishes')}}" class="waves-effect waves-light btn-small right">To continue
+            <a href="{{url_for('dishes.all_dishes')}}" class="waves-effect waves-light btn-small right">To continue
                 ordering</a>
             <button type="submit" class="waves-effect waves-light btn-small left">Confirm Order</button>
         </div>

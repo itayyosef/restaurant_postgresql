@@ -28,9 +28,10 @@
         </li>
     </ul>
 </ul>
-<form action="{{url_for('delete_category',id=category.id)}}" method="POST">
+<form action="{{url_for('categories.delete_category',id=category.id)}}" method="POST">
     <button type="submit" class="waves-effect waves-light btn-small">Accept</button>
-    <a href="{{url_for('manage_categories')}}" class="waves-effect waves-light btn-small">No , back to category</a>
+    <a href="{{url_for('categories.manage_categories')}}" class="waves-effect waves-light btn-small">No , back to
+        category</a>
     <a href="{{url_for('main_page')}}" class="waves-effect waves-light btn-small right">Back to Main</a>
 </form>
 {% endblock %}

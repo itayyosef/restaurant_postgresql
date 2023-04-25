@@ -7,14 +7,14 @@
         </a>
         <ul class="right">
             <span class="smaller-text left">053-23231312 | השלושה 5 , יהוד</span>
-            <li><a href="{{url_for ('manage_categories')}}">Show categories</a></li>
-            <li><a href="{{url_for ('manage_dishes')}}">Show dishes</a></li>
-            <li><a href="{{url_for ('manage_deliveries')}}">All deliveries</a></li>
+            <li><a href="{{url_for ('categories.manage_categories')}}">Show categories</a></li>
+            <li><a href="{{url_for ('dishes.manage_dishes')}}">Show dishes</a></li>
+            <li><a href="{{url_for ('deliveries.manage_deliveries')}}">All deliveries</a></li>
         </ul>
     </div>
 </nav>
 <div dir="rtl">
-    <a href="{{url_for ('logout')}}" class="bold">Logout
+    <a href="{{url_for ('users.logout')}}" class="bold">Logout
         <img class="logout-btn" src="{{ url_for('static',filename='images/logout_icon.png') }}" alt="Signout">
     </a>
 </div>
@@ -26,14 +26,14 @@
         </a>
         <ul class="right">
             <span class="smaller-text left">053-23231312 | השלושה 5 , יהוד</span>
-            <li><a href="{{url_for ('show_cart')}}">Show cart</a></li>
-            <li><a href="{{url_for ('all_dishes')}}">All Dishes</a></li>
-            <li><a href="{{url_for ('show_user')}}">To User</a></li>
+            <li><a href="{{url_for ('carts.show_cart')}}">Show cart</a></li>
+            <li><a href="{{url_for ('dishes.all_dishes')}}">All Dishes</a></li>
+            <li><a href="{{url_for ('users.show_user')}}">To User</a></li>
         </ul>
     </div>
 </nav>
 <div dir="rtl">
-    <a href="{{url_for ('logout')}}" class="bold">Logout
+    <a href="{{url_for ('users.logout')}}" class="bold">Logout
         <img class="logout-btn" src="{{ url_for('static',filename='images/logout_icon.png') }}" alt="Signout"></a>
 </div>
 {% endif %}
@@ -45,8 +45,8 @@
         </a>
         <ul class="right">
             <span class="smaller-text left">053-23231312 | השלושה 5 , יהוד</span>
-            <li><a href="{{url_for ('new_signup')}}">Sign up</a></li>
-            <li><a href="{{url_for ('login') }}">Log in</a></li>
+            <li><a href="{{url_for ('users.new_signup')}}">Sign up</a></li>
+            <li><a href="{{url_for ('users.login') }}">Log in</a></li>
         </ul>
     </div>
 </nav>

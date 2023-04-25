@@ -2,10 +2,11 @@
 {% block content %}
 <br>
 <div class="center">
-    <a class="waves-effect waves-light btn-small right" href="{{url_for('show_user')}}">Go to user overview</a>
-    <a class="waves-effect waves-light btn-small center" style="margin-left:45px" href="{{url_for('all_dishes')}}">To
+    <a class="waves-effect waves-light btn-small right" href="{{url_for('users.show_user')}}">Go to user overview</a>
+    <a class="waves-effect waves-light btn-small center" style="margin-left:45px"
+        href="{{url_for('dishes.all_dishes')}}">To
         all dishes</a>
-    <a class="waves-effect waves-light btn-small left" href="{{url_for('show_cart')}}">To see cart</a>
+    <a class="waves-effect waves-light btn-small left" href="{{url_for('carts.show_cart')}}">To see cart</a>
 </div>
 <div class="col s12">
     <div class="centerize">
@@ -20,7 +21,8 @@
                     <ul>
                         {% for category in categories %}
                         <li class="special-img-container">
-                            <a href="{{url_for('show_by_category',id=category.id)}}" class="black-text bold"><span
+                            <a href="{{url_for('dishes.show_by_category',id=category.id)}}"
+                                class="black-text bold"><span
                                     class="bigger-text">{{category.category_name|title}}</span>
                                 <img class="centered-img" src="{{category.image_url}}" width="60px" height="65px"></a>
                         </li>
@@ -64,7 +66,7 @@
                 <h6 class="bigger-text">{{dish.dish_name}}</h6>
                 <p class="smaller-text">{{dish.description|truncate(200)}}</p>
                 <div class="centerize">
-                    <form action="{{url_for('new_cart')}}" method="POST">
+                    <form action="{{url_for('carts.new_cart')}}" method="POST">
                         <div class="container-price-icon">
                             <div>
                                 <div class="input-field">

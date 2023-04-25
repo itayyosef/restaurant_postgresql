@@ -2,11 +2,11 @@
 {% block content %}
 <br>
 <div class="center">
-    <a class="waves-effect waves-light btn-small right" href="{{url_for('show_user')}}">Go to user overview</a>
+    <a class="waves-effect waves-light btn-small right" href="{{url_for('users.show_user')}}">Go to user overview</a>
     <a href="{{url_for('main_page')}}" class="waves-effect waves-light btn-small center" style="margin-left:60px">Back
         to
         Main</a>
-    <a class="waves-effect waves-light btn-small left" href="{{url_for('show_cart')}}">To see cart</a>
+    <a class="waves-effect waves-light btn-small left" href="{{url_for('carts.show_cart')}}">To see cart</a>
 </div>
 
 {% with success = get_flashed_messages(category_filter=['success']) %}
@@ -40,7 +40,7 @@
                 <ul>
                     {% for category in categories %}
                     <li class="special-img-container">
-                        <a href="{{url_for('show_by_category',id=category.id)}}" class="black-text bold"><span
+                        <a href="{{url_for('dishes.show_by_category',id=category.id)}}" class="black-text bold"><span
                                 class="bigger-text">{{category.category_name|title}}</span>
                             <img class="centered-img" src="{{category.image_url}}" width="60px" height="65px"></a>
                     </li>
@@ -86,7 +86,7 @@
                 <h6 class="bigger-text">{{ dish.dish_name }}</h6>
                 <p class="smaller-text">{{ dish.description|truncate(200) }}</p>
                 <div>
-                    <form action="{{ url_for('new_cart') }}" method="POST">
+                    <form action="{{ url_for('carts.new_cart') }}" method="POST">
                         <div class="container-price-icon">
                             <div class="col s3">
                                 <div class="input-field">

@@ -21,19 +21,21 @@
 <ul class="collection">
     <li class="collection-item">1. Manage deliveries : check done deliveries and change their status.
         <div class="center small-margin-top">
-            <a href="{{url_for ('manage_deliveries') }}" class="waves-effect waves-light blue darken-1 btn-small">All
+            <a href="{{url_for ('deliveries.manage_deliveries') }}"
+                class="waves-effect waves-light blue darken-1 btn-small">All
                 Deliveries</a>
         </div>
     </li>
     <li class="collection-item">2. Manage food categories : delete , add and chang the site's categories.
         <div class="center small-margin-top">
-            <a href="{{url_for ('manage_categories') }}" class="waves-effect waves-light blue darken-1 btn-small">All
+            <a href="{{url_for ('categories.manage_categories') }}"
+                class="waves-effect waves-light blue darken-1 btn-small">All
                 Categories</a>
         </div>
     </li>
     <li class="collection-item">3. Manage dishes : delete , add and change the site's dishes.
         <div class="center small-margin-top">
-            <a href="{{url_for ('manage_dishes') }}" class="waves-effect waves-light blue darken-1 btn-small">All
+            <a href="{{url_for ('dishes.manage_dishes') }}" class="waves-effect waves-light blue darken-1 btn-small">All
                 Dishes</a>
         </div>
     </li>
@@ -49,8 +51,8 @@
 
 <br>
 <div dir="rtl">
-    <a class="waves-effect waves-light btn-small" href="{{url_for('show_user')}}">Go to user overview</a>
-    <a class="waves-effect waves-light btn-small left" href="{{url_for('all_dishes')}}">Check our menu</a>
+    <a class="waves-effect waves-light btn-small" href="{{url_for('users.show_user')}}">Go to user overview</a>
+    <a class="waves-effect waves-light btn-small left" href="{{url_for('dishes.all_dishes')}}">Check our menu</a>
 </div>
 
 {% with error = get_flashed_messages(category_filter=['error']) %}

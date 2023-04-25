@@ -6,9 +6,10 @@
     <div class="center">
         <a href="{{url_for ('main_page') }}" class="waves-effect waves-light grey darken-1 btn-small right">Back to main
             page</a>
-        <a href="{{url_for ('manage_categories') }}" class="waves-effect waves-light grey darken-1 btn-small left">All
+        <a href="{{url_for ('categories.manage_categories') }}"
+            class="waves-effect waves-light grey darken-1 btn-small left">All
             Categories</a>
-        <a href="{{url_for ('manage_dishes')}}" class="waves-effect waves-light grey darken-1 btn-small">All
+        <a href="{{url_for ('dishes.manage_dishes')}}" class="waves-effect waves-light grey darken-1 btn-small">All
             Dishes</a>
     </div>
 </div>
@@ -92,7 +93,7 @@
                 <div class="bold" style="color:lightgreen">Delivered</div>
                 {% elif cart.delivery %}
                 <div class="bold" style="color:orange">In preparation</div>
-                <form action="{{url_for ('change_delivery_status',id=cart.id)}}" method="POST">
+                <form action="{{url_for ('deliveries.change_delivery_status',id=cart.id)}}" method="POST">
                     <button type="submit" class="waves-effect waves-light btn-small">Confirm delivery
                     </button>
                 </form>

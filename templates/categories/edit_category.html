@@ -2,7 +2,7 @@
 {% block content %}
 <h5>Editing the <span class="bold">{{category.category_name}}</span> category :</h5>
 <div class="row">
-    <form action="{{url_for('edit_category',id=category.id)}}" method="POST" class="col s12">
+    <form action="{{url_for('categories.edit_category',id=category.id)}}" method="POST" class="col s12">
         <div class="row">
             <div class="input-field col s12">
                 <input placeholder="Category name" id="category_name" type="text" class="validate" name="category_name"
@@ -21,7 +21,8 @@
             </div>
             <div>
                 <button type="submit" class="waves-effect waves-light btn-small">Accept</button>
-                <a href="{{url_for('manage_categories')}}" class="waves-effect waves-light btn-small">No , back to
+                <a href="{{url_for('categories.manage_categories')}}" class="waves-effect waves-light btn-small">No ,
+                    back to
                     categories</a>
                 <a href="{{url_for('main_page')}}" class="waves-effect waves-light btn-small right">Back to Main</a>
             </div>

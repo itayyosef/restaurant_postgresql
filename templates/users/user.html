@@ -3,7 +3,7 @@
 
 <br>
 <div dir="rtl">
-    <a href="{{url_for ('all_dishes') }}" class="waves-effect waves-light btn-small">All Dishes</a>
+    <a href="{{url_for ('dishes.all_dishes') }}" class="waves-effect waves-light btn-small">All Dishes</a>
 </div>
 
 {% with success = get_flashed_messages(category_filter=['success']) %}
@@ -56,9 +56,9 @@
                 </div>
             </div>
             <div>
-                <a href="{{url_for ('edit_user_details')}}" class="waves-effect waves-light btn-small">Edit
+                <a href="{{url_for ('users.edit_user_details')}}" class="waves-effect waves-light btn-small">Edit
                     details</a>
-                <a href="{{url_for ('order_history')}}" class="waves-effect waves-light btn-small">Delivery
+                <a href="{{url_for ('users.order_history')}}" class="waves-effect waves-light btn-small">Delivery
                     history</a>
             </div>
         </div>
