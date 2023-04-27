@@ -8,7 +8,7 @@ from controllers.forms import SignupForm
 
 def new_signup():
     if current_user.is_authenticated:
-        return render_template('users/main_page_auth.html')
+        return redirect(url_for('main_page'))
     
     signup_form = SignupForm()
     if request.method == "POST" and signup_form.validate_on_submit(): # validating the form is correctly filled
@@ -39,7 +39,7 @@ def new_signup():
 
 def login():
     if current_user.is_authenticated:
-        return render_template('users/main_page_auth.html')
+        return redirect(url_for('main_page'))
     if request.method == "POST":
         # remember_me will return on or none , so if remember_me == on then remember the cookie
         remember = False
@@ -49,7 +49,8 @@ def login():
         if user != None: # if a match was found with the user attempting to log in
             if request.form['password'] == user.password: # password validation
                 login_user(user,remember=remember)
-                flash('You have successfully logged in')
+                flash('You have successfully logged in','success')
+                print(user.__dict__)
                 return redirect(url_for('main_page'))
             else:
                 flash("The username or password you logged with are incorrect.","error")

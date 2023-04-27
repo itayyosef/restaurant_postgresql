@@ -2,6 +2,16 @@
 {% block content %}
 {% if current_user.is_staff %}
 
+{% with success = get_flashed_messages(category_filter=['success']) %}
+{% if success %}
+{% for message in success%}
+<script classes="toast-container">
+    M.toast({ html: '{{message}}', displayLength: 3000, classes: 'rounded green success-toast-margin-right' })
+</script>
+{% endfor %}
+{% endif %}
+{% endwith %}
+
 {% with error = get_flashed_messages(category_filter=['error']) %}
 {% if error %}
 {% for message in error %}
@@ -55,6 +65,16 @@
     <a class="waves-effect waves-light btn-small left" href="{{url_for('dishes.all_dishes')}}">Check our menu</a>
 </div>
 
+{% with success = get_flashed_messages(category_filter=['success']) %}
+{% if success %}
+{% for message in success%}
+<script classes="toast-container">
+    M.toast({ html: '{{message}}', displayLength: 3000, classes: 'rounded green success-toast-margin-right' })
+</script>
+{% endfor %}
+{% endif %}
+{% endwith %}
+
 {% with error = get_flashed_messages(category_filter=['error']) %}
 {% if error %}
 {% for message in error %}
@@ -79,6 +99,6 @@
     simplest and shortest way and enjoy a culinary browsing experience. <br>
     So bon appetit, the delivery is already on its way to you.
 </p>
-<img src="https://rddmag.com/images/2019/09/form_function-evviva-1.jpg" alt="" style="width:1100px;height:500px">
+<img src="https://rddmag.com/images/2019/09/form_function-evviva-1.jpg" alt="" style="width:100%;height:500px">
 {% endif %}
 {% endblock %}
