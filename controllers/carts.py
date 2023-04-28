@@ -58,7 +58,7 @@ def show_cart():
     cart = Cart.query.filter_by(user_id=current_user.id,finished_order=False).first() # get the active cart
     if not cart:
         flash("You have not made a new cart yet , please add items to your cart first","error")
-        flash("To see the current delivery , go to user view.","error")
+        flash("Go to userview to view latest delivery if made","error")
         return redirect(url_for("dishes.all_dishes"))
     return render_template("carts/one_cart.html",cart=cart,calculate_order=calculate_order(cart))
 
