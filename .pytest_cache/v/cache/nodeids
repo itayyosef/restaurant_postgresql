@@ -1,0 +1,6 @@
+[
+  "test_delete_category.py::MyTest::test_homepage",
+  "test_delete_category.py::test_edit_user",
+  "test_delete_category.py::test_function",
+  "test_delete_category.py::test_index_route"
+]

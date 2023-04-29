@@ -1,0 +1,5 @@
+{
+  "test_delete_category.py::MyTest::test_homepage": true,
+  "test_delete_category.py::test_index_route": true,
+  "test_delete_category.py::test_edit_user": true
+}
