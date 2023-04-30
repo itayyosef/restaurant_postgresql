@@ -4,6 +4,10 @@ Itay Yosef
 
 GITHUB link - https://github.com/itayyosef/Project-restaurant.git
 
+פרטי משתמש מנהל
+username : kobi
+password : 123
+
 הסבר על המשימה :
 
 מסעדה החליטה לפתוח שירות משלוחים אינטרנים , שבפרוייקט נדרש לפתח מערכת ניהול משלוחים ואתר הזמנות ללקוח.
