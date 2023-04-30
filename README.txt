@@ -2,6 +2,11 @@ Itay Yosef
 
 --- המלצת השף : האתר נראה הכי טוב בין 70% ל 100% מרוחב המסך ---
 
+
+פרטים של משתמש מנהל
+username : kobi
+password : 123
+
 GITHUB link - https://github.com/itayyosef/Project-restaurant.git
 
 הסבר על המשימה :
