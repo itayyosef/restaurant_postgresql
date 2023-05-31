@@ -4,7 +4,7 @@ URL Restaurant - https://projectrestaurant.whitebay-1f630bc3.germanywestcentral.
 
 --- המלצת השף : האתר נראה הכי טוב בין 70% ל 100% מרוחב המסך ---
 
-GITHUB link - https://github.com/itayyosef/Project-restaurant.git
+GITHUB link - https://github.com/itayyosef/restaurant_postgresql.git
 
 פרטי משתמש מנהל
 username : kobi
