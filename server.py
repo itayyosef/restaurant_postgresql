@@ -10,7 +10,7 @@ from routes.deliveries import deliveries_bp
 
 # app init stage
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///restaurant.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = f'postgresql+psycopg2://itayyosef:Python_Project@restaurant-db.postgres.database.azure.com/postgres'
 app.config['SECRET_KEY'] = '2345iok45j34nitm345fg0-2[tv345g23452]fg34'
 
 # db init stage
@@ -36,4 +36,4 @@ app.register_blueprint(dishes_bp)
 app.register_blueprint(deliveries_bp)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True,host="0.0.0.0")
