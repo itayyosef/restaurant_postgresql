@@ -1,6 +1,6 @@
 Itay Yosef
 
-URL Restaurant - https://projectrestaurant.whitebay-1f630bc3.germanywestcentral.azurecontainerapps.io/
+URL Restaurant - https://restaurant-website.whitebay-1f630bc3.germanywestcentral.azurecontainerapps.io
 
 --- המלצת השף : האתר נראה הכי טוב בין 70% ל 100% מרוחב המסך ---
 
