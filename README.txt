@@ -6,10 +6,6 @@ URL Restaurant - https://restaurant-website.whitebay-1f630bc3.germanywestcentral
 
 GITHUB link - https://github.com/itayyosef/restaurant_postgresql.git
 
-פרטי משתמש מנהל
-username : kobi
-password : 123
-
 הסבר על המשימה :
 
 מסעדה החליטה לפתוח שירות משלוחים אינטרנים , שבפרוייקט נדרש לפתח מערכת ניהול משלוחים ואתר הזמנות ללקוח.
